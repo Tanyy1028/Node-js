@@ -1,0 +1,4 @@
+request sent on http://localhost:/ by GET at 7/12/2025 | 12:4:38 at ip address ::1
+request sent on http://localhost:/favicon.ico by GET at 7/12/2025 | 12:4:39 at ip address ::1
+request sent on http://localhost:/ by POST at 7/12/2025 | 12:13:34 at ip address ::1
+request sent on http://localhost:/ by PUT at 7/12/2025 | 12:13:42 at ip address ::1
