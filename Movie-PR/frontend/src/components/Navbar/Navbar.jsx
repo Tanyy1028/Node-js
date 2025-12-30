@@ -5,7 +5,7 @@ import "./Navbar.css";
 export default function Navbar() {
     return (
         <header className="navbar">
-            <div className="logo">MovieManager</div>
+            <div className="logo">Movie</div>
 
             <nav className="nav-links">
                 <Link to="/" className="link">Movies</Link>
