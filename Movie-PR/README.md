@@ -20,6 +20,10 @@ This project allows users to **add, view, update, delete, and search movies** wi
 
 
 
+https://github.com/user-attachments/assets/486b0998-a264-49ef-8dde-d656cc19a1ee
+
+
+
 
 
 
