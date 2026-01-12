@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  /* Dynamic Deep Purple/Black Gradient */
+  background: radial-gradient(circle at center, #1a0b2e 0%, #09090b 100%);
+  min-height: 100vh;
+  /* Scroll fix for body */
+  overflow-x: hidden;
+}
+
+/* Scrollable Wrapper */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; /* Mobile par space ke liye */
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236b21a8' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Card: Neon Border & Glass effect */
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  background: rgba(20, 10, 30, 0.8);
+  border-radius: 20px;
+  border: 1px solid rgba(217, 70, 239, 0.3); /* Purple border */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(168, 85, 247, 0.1);
+  color: #f5f5f4;
+  /* Animation */
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Brand - Hot Pink Neon */
+.brand {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(217, 70, 239, 0.5);
+}
+
+.brand span {
+  color: #d946ef; /* Hot Pink */
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 13px;
+  color: #a78bfa;
+  margin-bottom: 25px;
+}
+
+/* Form inputs - Darker with Pink Focus */
+.auth-card input {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  border: 1px solid #3b0764;
+  background: #0f0716;
+  color: #fff;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.auth-card input:focus {
+  outline: none;
+  border-color: #d946ef;
+  box-shadow: 0 0 10px rgba(217, 70, 239, 0.2);
+}
+
+/* Button: Gradient Purple to Pink */
+.auth-card button {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c3aed, #d946ef);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.auth-card button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(217, 70, 239, 0.4);
+  filter: brightness(1.1);
+}
+
+/* Footer fix */
+.footer-text {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.footer-text span {
+  color: #d946ef;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Scrollbar styling (Crazy details) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #7c3aed;
+  border-radius: 10px;
+}
