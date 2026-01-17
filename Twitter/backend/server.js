@@ -11,7 +11,7 @@ app.use(express.json());
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const filePath = path.join(__dirname, "data.json");
-const PORT = 4000;
+const PORT = 4141;
 
 const ReadData = () => {
     const result = fs.readFileSync(filePath, "utf-8");

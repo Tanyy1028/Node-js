@@ -9,19 +9,19 @@ function App() {
   const date = Date.now();
 
   const fetchApi = async () => {
-    let res = await axios.get("http://localhost:5000");
+    let res = await axios.get("http://localhost:4141");
     setData(res.data);
   };
 
   const handleAdd = async () => {
     if (editId == null) {
-      let res = await axios.post("http://localhost:5000", {
+      let res = await axios.post("http://localhost:4141", {
         id: date,
         message: twit,
       });
       setData(res.data);
     } else {
-      let res = await axios.put(`http://localhost:5000/${editId}`, {
+      let res = await axios.put(`http://localhost:4141/${editId}`, {
         message: twit,
       });
       setData(res.data);
@@ -36,7 +36,7 @@ function App() {
   };
 
   const handleDelete = async (id) => {
-    let res = await axios.delete(`http://localhost:5000/${id}`);
+    let res = await axios.delete(`http://localhost:4141/${id}`);
     setData(res.data);
   };
 
