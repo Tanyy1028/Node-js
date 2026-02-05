@@ -1,149 +1,98 @@
 import React from "react";
 import { Link } from "react-router";
+import "./home.css";
 
 export default function Dashboard() {
   return (
-    <div className="container-fluid">
-      <div className="row min-vh-100">
+    <div className="dash-root">
 
-        {/* ===== Sidebar ===== */}
-        <div className="col-md-3 col-lg-2 bg-dark text-white p-4">
-          <h4 className="fw-bold mb-4">SkillPanel</h4>
+      {/* ===== SIDEBAR ===== */}
+      <aside className="dash-sidebar">
+        <h2 className="dash-logo">SkillPanel</h2>
 
-          <ul className="nav flex-column gap-2">
-            <li className="nav-item">
-              <Link to="/dashboard" className="nav-link text-white">
-                📊 Dashboard
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/ProfilePage" className="nav-link text-white">
-                👤 Profile
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/skills" className="nav-link text-white">
-                🧠 Skills
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/AboutPage" className="nav-link text-white">
-                ℹ️ About
-              </Link>
-            </li>
-            <li className="nav-item mt-3">
-              <Link to="/" className="nav-link text-danger">
-                🚪 Logout
-              </Link>
-            </li>
-          </ul>
-        </div>
+        <nav className="dash-nav">
+          <Link to="/dashboard" className="dash-link active">Dashboard</Link>
+          <Link to="/ProfilePage" className="dash-link">Profile</Link>
+          <Link to="/skills" className="dash-link">Skills</Link>
+          <Link to="/AboutPage" className="dash-link">About</Link>
+          <Link to="/" className="dash-link logout">Logout</Link>
+        </nav>
+      </aside>
 
-        {/* ===== Main Content ===== */}
-        <div className="col-md-9 col-lg-10 bg-light p-5">
+      {/* ===== MAIN ===== */}
+      <main className="dash-main">
 
-          {/* Header */}
-          <div className="d-flex justify-content-between align-items-center mb-4">
-            <div>
-              <h2 className="fw-bold">Dashboard</h2>
-              <p className="text-muted mb-0">
-                Skill Progress Overview
-              </p>
+        {/* Header */}
+        <header className="dash-header">
+          <div>
+            <h1>Dashboard</h1>
+            <p>Skill progress overview</p>
+          </div>
+          <span className="dash-user">Welcome, Admin</span>
+        </header>
+
+        {/* Stats */}
+        <section className="dash-stats">
+          <div className="stat-card">
+            <span>Total Users</span>
+            <h3>120</h3>
+          </div>
+          <div className="stat-card">
+            <span>Total Skills</span>
+            <h3>48</h3>
+          </div>
+          <div className="stat-card">
+            <span>Avg Progress</span>
+            <h3>72%</h3>
+          </div>
+          <div className="stat-card">
+            <span>Active Learners</span>
+            <h3>89</h3>
+          </div>
+        </section>
+
+        {/* Content */}
+        <section className="dash-grid">
+
+          {/* Skills */}
+          <div className="dash-card">
+            <h4>Top Skills</h4>
+
+            <div className="skill">
+              <span>React</span>
+              <div className="skill-bar">
+                <div style={{ width: "75%" }} />
+              </div>
             </div>
-            <div className="fw-semibold">
-              👋 Welcome, Admin
+
+            <div className="skill">
+              <span>JavaScript</span>
+              <div className="skill-bar">
+                <div style={{ width: "85%" }} />
+              </div>
+            </div>
+
+            <div className="skill">
+              <span>Node.js</span>
+              <div className="skill-bar">
+                <div style={{ width: "60%" }} />
+              </div>
             </div>
           </div>
 
-          {/* ===== Stats Cards ===== */}
-          <div className="row g-4 mb-4">
-
-            <div className="col-md-3">
-              <div className="card border-0 shadow-sm rounded-4 p-3">
-                <h6 className="text-muted">Total Users</h6>
-                <h3 className="fw-bold">120</h3>
-              </div>
-            </div>
-
-            <div className="col-md-3">
-              <div className="card border-0 shadow-sm rounded-4 p-3">
-                <h6 className="text-muted">Total Skills</h6>
-                <h3 className="fw-bold">48</h3>
-              </div>
-            </div>
-
-            <div className="col-md-3">
-              <div className="card border-0 shadow-sm rounded-4 p-3">
-                <h6 className="text-muted">Avg Progress</h6>
-                <h3 className="fw-bold">72%</h3>
-              </div>
-            </div>
-
-            <div className="col-md-3">
-              <div className="card border-0 shadow-sm rounded-4 p-3">
-                <h6 className="text-muted">Active Learners</h6>
-                <h3 className="fw-bold">89</h3>
-              </div>
-            </div>
-
+          {/* Activity */}
+          <div className="dash-card">
+            <h4>Recent Activity</h4>
+            <ul className="activity">
+              <li>React skill updated to 75%</li>
+              <li>JavaScript marked Advanced</li>
+              <li>New user registered</li>
+              <li>Node.js progress increased</li>
+            </ul>
           </div>
 
-          {/* ===== Skill Progress Section ===== */}
-          <div className="row g-4">
-
-            <div className="col-md-6">
-              <div className="card border-0 shadow-sm rounded-4 p-4">
-                <h5 className="fw-semibold mb-3">Top Skills Progress</h5>
-
-                <p className="mb-1">React</p>
-                <div className="progress mb-3">
-                  <div className="progress-bar bg-success" style={{ width: "75%" }}>
-                    75%
-                  </div>
-                </div>
-
-                <p className="mb-1">JavaScript</p>
-                <div className="progress mb-3">
-                  <div className="progress-bar bg-primary" style={{ width: "85%" }}>
-                    85%
-                  </div>
-                </div>
-
-                <p className="mb-1">Node.js</p>
-                <div className="progress">
-                  <div className="progress-bar bg-warning" style={{ width: "60%" }}>
-                    60%
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* ===== Recent Activity ===== */}
-            <div className="col-md-6">
-              <div className="card border-0 shadow-sm rounded-4 p-4">
-                <h5 className="fw-semibold mb-3">Recent Activity</h5>
-
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item">
-                    ✔ React skill updated to 75%
-                  </li>
-                  <li className="list-group-item">
-                    ✔ JavaScript marked as Advanced
-                  </li>
-                  <li className="list-group-item">
-                    ✔ New user added
-                  </li>
-                  <li className="list-group-item">
-                    ✔ Node.js progress increased
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
   );
 }

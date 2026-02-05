@@ -1,0 +1,27 @@
+/* ===============================
+   OTP INPUT STYLE
+================================ */
+.otp-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 2.4rem;
+}
+
+.otp-input {
+  width: 46px !important;
+  height: 54px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(167, 139, 250, 0.35);
+  text-align: center;
+  font-size: 1.1rem;
+  color: #f9fafb;
+  transition: 0.3s;
+}
+
+.otp-input:focus {
+  outline: none;
+  border-color: #a78bfa;
+  transform: translateY(-2px);
+}

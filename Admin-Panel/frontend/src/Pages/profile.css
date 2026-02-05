@@ -1,0 +1,103 @@
+.profile-root {
+  min-height: 100vh;
+  padding: 3rem;
+  background: radial-gradient(circle at top, #020617, #000);
+  color: #e5e7eb;
+  font-family: "Inter", sans-serif;
+}
+
+.profile-title {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  color: #a78bfa;
+}
+
+/* GRID */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 2rem;
+}
+
+/* CARD */
+.profile-card {
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 2rem;
+}
+
+/* LEFT */
+.profile-left {
+  text-align: center;
+}
+
+.profile-left img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #a78bfa;
+  margin-bottom: 1rem;
+}
+
+.profile-left h4 {
+  margin-bottom: 0.3rem;
+}
+
+.profile-left span {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.profile-left button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.8rem;
+  background: #a78bfa;
+  border: none;
+  color: #020617;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.profile-left button:hover {
+  background: #8b5cf6;
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 #020617;
+}
+
+/* FORM */
+.profile-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin-bottom: 0.4rem;
+}
+
+.field input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #1e293b;
+  padding: 0.6rem 0;
+  color: #e5e7eb;
+  font-size: 0.9rem;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: #a78bfa;
+}

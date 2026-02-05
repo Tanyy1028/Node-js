@@ -1,0 +1,192 @@
+/* ===============================
+   CORE SYSTEM
+================================ */
+:root {
+  --accent: #7c3aed;        /* electric violet */
+  --accent-glow: #a78bfa;
+  --bg-main: #c8c8d4;
+  --bg-card: #0a0a12;
+  --border: #1a1a2e;
+  --text-main: #e5e7eb;
+  --text-muted: #6b7280;
+}
+
+/* ===============================
+   FULL SCREEN VOID
+================================ */
+.auth-root {
+  min-height: 100vh;
+  background:radial-gradient(circle at top, #dcdcfa, #1b1b1b 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* ===============================
+   BRUTAL FLOAT CARD
+================================ */
+.auth-box {
+  width: 380px;
+  background: linear-gradient(
+    180deg,
+    #0b0b18,
+        #05050a
+  );
+  border: 1px solid var(--border);
+  padding: 3rem;
+  position: relative;
+  isolation: isolate;
+}
+
+/* glow layer */
+.auth-box::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    var(--accent),
+    transparent 60%
+  );
+  opacity: 0.15;
+  filter: blur(20px);
+  z-index: -1;
+}
+
+/* hard shadow */
+.auth-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow:
+    16px 16px 0 #000,
+    0 0 0 1px var(--border);
+  z-index: -2;
+}
+
+/* ===============================
+   TITLE
+================================ */
+.auth-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--text-main);
+  margin-bottom: 0.2rem;
+}
+
+.auth-title span {
+  color: var(--accent);
+}
+
+/* ===============================
+   SUBTITLE
+================================ */
+.auth-subtitle {
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+}
+
+/* ===============================
+   INPUTS
+================================ */
+.auth-field input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 0;
+  margin-bottom: 2rem;
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+.auth-field input::placeholder {
+  color: #4b5563;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+}
+
+.auth-field input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* ===============================
+   LINKS
+================================ */
+.auth-links {
+  text-align: right;
+  margin-bottom: 2.2rem;
+}
+
+.auth-links a {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.auth-links a:hover {
+  color: var(--accent);
+}
+
+/* ===============================
+   ACTION BUTTON
+================================ */
+.auth-action {
+  width: 100%;
+  padding: 0.95rem;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  font-weight: 700;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.auth-action:hover {
+  background: var(--accent);
+  color: #05050a;
+  box-shadow:
+    0 0 25px var(--accent-glow);
+}
+
+/* ===============================
+   FOOTER
+================================ */
+.auth-footer {
+  margin-top: 2rem;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.auth-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ===============================
+   ENTRY ANIMATION
+================================ */
+.auth-box {
+  animation: enter 0.6s ease;
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
