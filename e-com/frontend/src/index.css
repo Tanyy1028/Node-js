@@ -1,0 +1,141 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+  margin: 0;
+}
+
+/* NAVBAR */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 40px;
+  background: white;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+}
+
+.logo {
+  color: #2563eb;
+}
+
+.nav-links a,
+.nav-auth a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: white !important;
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+/* CENTER CARD */
+.center-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 380px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.card input {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.full {
+  width: 100%;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.bottom-text {
+  text-align: center;
+  margin-top: 14px;
+}
+/* PAGE */
+.page {
+  padding: 30px 40px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.muted {
+  color: #6b7280;
+}
+
+/* FILTER */
+.filter-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid #2563eb;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: white;
+}
+
+.filter-box select {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+}
+
+/* EMPTY STATE */
+.empty-state {
+  margin-top: 120px;
+  text-align: center;
+  color: #6b7280;
+}
+
+/* GRID */
+.product-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.price {
+  font-weight: bold;
+  margin: 6px 0;
+}
+
+.badge {
+  display: inline-block;
+  background: #eef2ff;
+  color: #4338ca;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
