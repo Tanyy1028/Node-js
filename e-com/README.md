@@ -15,6 +15,26 @@ A full-stack **MERN (MongoDB, Express, React, Node.js)** e-commerce admin & prod
 ---
 
 ## 🧱 Tech Stack
+## Video 
+
+
+
+
+https://github.com/user-attachments/assets/d11b9510-578b-40e3-9d45-0e2bb492b80b
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 **Frontend**
 
