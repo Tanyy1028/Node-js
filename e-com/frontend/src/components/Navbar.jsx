@@ -6,7 +6,7 @@ const Navbar = () => {
       <h2>ShopHub</h2>
 
       <div style={styles.links}>
-        <Link to="/">Products</Link>
+        <Link to="/products">Products</Link>
         <Link to="/categories">Categories</Link>
       </div>
 
