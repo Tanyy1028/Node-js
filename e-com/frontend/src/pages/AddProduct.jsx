@@ -13,7 +13,6 @@ const AddProduct = () => {
     category: "",
   });
 
-  // ⭐ fetch categories
   useEffect(() => {
     const fetchCat = async () => {
       try {
@@ -28,7 +27,6 @@ const AddProduct = () => {
     fetchCat();
   }, []);
 
-  // ⭐ handle submit
   const submit = async (e) => {
     e.preventDefault();
 
@@ -56,8 +54,6 @@ const AddProduct = () => {
     <div style={styles.page}>
       <form onSubmit={submit} style={styles.form}>
         <h2 style={styles.title}>Add Product</h2>
-
-        {/* Product Name */}
         <input
           style={styles.input}
           value={form.name}
@@ -68,7 +64,6 @@ const AddProduct = () => {
           required
         />
 
-        {/* Price */}
         <input
           style={styles.input}
           type="number"
@@ -79,8 +74,6 @@ const AddProduct = () => {
           }
           required
         />
-
-        {/* Category Dropdown */}
         <select
           style={styles.select}
           value={form.category}

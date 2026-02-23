@@ -1,7 +1,6 @@
 import Product from "../models/Product.js";
 import User from "../models/User.js";
 
-// ✅ Create Product
 export const createProduct = async (req, res) => {
   try {
     const { name, price, category } = req.body;
@@ -10,10 +9,9 @@ export const createProduct = async (req, res) => {
       name,
       price,
       category,
-      user: req.user.id // ⚠️ yaha user hai, createdBy nahi
+      user: req.user.id 
     });
 
-    // user ke products me push (optional)
     await User.findByIdAndUpdate(req.user.id, {
       $push: { products: product._id }
     });
@@ -25,7 +23,6 @@ export const createProduct = async (req, res) => {
   }
 };
 
-// ✅ Get All Products
 export const getProducts = async (req, res) => {
   try {
     const products = await Product.find()
@@ -39,7 +36,6 @@ export const getProducts = async (req, res) => {
   }
 };
 
-// ✅ Update Product
 export const updateProduct = async (req, res) => {
   try {
     const product = await Product.findByIdAndUpdate(
@@ -54,7 +50,6 @@ export const updateProduct = async (req, res) => {
   }
 };
 
-// ✅ Delete Product
 export const deleteProduct = async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);

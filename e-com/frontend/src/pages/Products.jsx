@@ -68,8 +68,6 @@ const Products = () => {
   return (
     <div style={styles.container}>
       <h2 style={styles.title}>Admin Product CRUD</h2>
-
-      {/* FORM */}
       <form onSubmit={handleSubmit} style={styles.form}>
         <input
           name="name"
@@ -101,7 +99,6 @@ const Products = () => {
         </button>
       </form>
 
-      {/* PRODUCT LIST */}
       <div style={styles.grid}>
         {products.map((p) => (
           <div key={p._id} style={styles.card}>

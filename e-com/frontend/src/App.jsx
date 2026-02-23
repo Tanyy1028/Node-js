@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Navbar from "./components/Navbar"; // ⭐ import
+import Navbar from "./components/Navbar"; 
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Products from "./pages/Products";
@@ -10,7 +10,7 @@ import AdminCategories from "./pages/AdminCategories";
 function App() {
   return (
     <BrowserRouter>
-      <Navbar /> {/* ⭐ ALWAYS visible */}
+      <Navbar /> 
 
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />

@@ -26,7 +26,7 @@ const styles = {
   nav: {
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center", // ⭐ IMPORTANT (missing feel hota hai)
+    alignItems: "center",
     padding: "15px 30px",
     borderBottom: "1px solid #ddd",
     background: "#fff",
