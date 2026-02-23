@@ -3,6 +3,12 @@ import API from "../api/axios";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [form, setForm] = useState({
+    name: "",
+    price: "",
+    category: "",
+  });
+  const [editingId, setEditingId] = useState(null);
 
   const fetchProducts = async () => {
     try {
@@ -17,10 +23,85 @@ const Products = () => {
     fetchProducts();
   }, []);
 
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      if (editingId) {
+        await API.put(`/products/${editingId}`, form);
+      } else {
+        await API.post("/products", form);
+      }
+
+      setForm({ name: "", price: "", category: "" });
+      setEditingId(null);
+      fetchProducts();
+    } catch (err) {
+      console.error("Save product error:", err.message);
+    }
+  };
+
+  const handleEdit = (product) => {
+    setEditingId(product._id);
+    setForm({
+      name: product.name,
+      price: product.price,
+      category: product.category?._id || "",
+    });
+  };
+
+  const handleDelete = async (id) => {
+    if (!window.confirm("Delete this product?")) return;
+
+    try {
+      await API.delete(`/products/${id}`);
+      fetchProducts();
+    } catch (err) {
+      console.error("Delete error:", err.message);
+    }
+  };
+
   return (
     <div style={styles.container}>
-      <h2 style={styles.title}>All Products</h2>
+      <h2 style={styles.title}>Admin Product CRUD</h2>
 
+      {/* FORM */}
+      <form onSubmit={handleSubmit} style={styles.form}>
+        <input
+          name="name"
+          placeholder="Product Name"
+          value={form.name}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          name="price"
+          type="number"
+          placeholder="Price"
+          value={form.price}
+          onChange={handleChange}
+          required
+        />
+
+        <input
+          name="category"
+          placeholder="Category ID"
+          value={form.category}
+          onChange={handleChange}
+          required
+        />
+
+        <button type="submit">
+          {editingId ? "Update Product" : "Add Product"}
+        </button>
+      </form>
+
+      {/* PRODUCT LIST */}
       <div style={styles.grid}>
         {products.map((p) => (
           <div key={p._id} style={styles.card}>
@@ -29,6 +110,18 @@ const Products = () => {
             <p style={styles.category}>
               Category: <span>{p.category?.name}</span>
             </p>
+
+            <div style={styles.btnRow}>
+              <button onClick={() => handleEdit(p)} style={styles.editBtn}>
+                Edit
+              </button>
+              <button
+                onClick={() => handleDelete(p._id)}
+                style={styles.deleteBtn}
+              >
+                Delete
+              </button>
+            </div>
           </div>
         ))}
       </div>
@@ -42,43 +135,54 @@ const styles = {
     background: "#f8f9fa",
     minHeight: "100vh",
   },
-
   title: {
-    marginBottom: "25px",
-    color: "#333",
+    marginBottom: "20px",
   },
-
+  form: {
+    display: "flex",
+    gap: "10px",
+    marginBottom: "25px",
+  },
   grid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
     gap: "20px",
   },
-
   card: {
     border: "1px solid #e5e7eb",
     padding: "18px",
     borderRadius: "10px",
     background: "#fff",
-    boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
-    transition: "0.2s",
-    cursor: "pointer",
   },
-
   name: {
     margin: "0 0 8px 0",
-    color: "#111",
   },
-
   price: {
     margin: "0 0 6px 0",
     fontWeight: "bold",
     color: "#0d6efd",
   },
-
   category: {
     margin: 0,
     color: "#666",
-    fontSize: "14px",
+  },
+  btnRow: {
+    marginTop: "10px",
+    display: "flex",
+    gap: "10px",
+  },
+  editBtn: {
+    padding: "6px 12px",
+    background: "#ffc107",
+    border: "none",
+    cursor: "pointer",
+  },
+  deleteBtn: {
+    padding: "6px 12px",
+    background: "#dc3545",
+    color: "#fff",
+    border: "none",
+    cursor: "pointer",
   },
 };
 
