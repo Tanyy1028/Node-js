@@ -4,49 +4,37 @@ import User from "../models/User.js";
 // ✅ Create Product
 export const createProduct = async (req, res) => {
   try {
-    const { name, price, description, category } = req.body;
+    const { name, price, category } = req.body;
 
     const product = await Product.create({
       name,
       price,
-      description,
       category,
-      createdBy: req.user.id
+      user: req.user.id // ⚠️ yaha user hai, createdBy nahi
     });
 
-    // user ke products me push
+    // user ke products me push (optional)
     await User.findByIdAndUpdate(req.user.id, {
       $push: { products: product._id }
     });
 
     res.json(product);
   } catch (err) {
+    console.error("CREATE PRODUCT ERROR:", err.message);
     res.status(500).json({ msg: err.message });
   }
 };
 
-// ✅ Get All Products (with populate)
+// ✅ Get All Products
 export const getProducts = async (req, res) => {
   try {
     const products = await Product.find()
       .populate("category", "name")
-      .populate("createdBy", "username email");
+      .populate("user", "name email");
 
     res.json(products);
   } catch (err) {
-    res.status(500).json({ msg: err.message });
-  }
-};
-
-// ✅ Get My Products
-export const getMyProducts = async (req, res) => {
-  try {
-    const products = await Product.find({
-      createdBy: req.user.id
-    }).populate("category", "name");
-
-    res.json(products);
-  } catch (err) {
+    console.error("GET PRODUCTS ERROR:", err.message);
     res.status(500).json({ msg: err.message });
   }
 };

@@ -1,16 +1,134 @@
-# React + Vite
+# 🛍️ ShopHub — MERN E-Commerce App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack **MERN (MongoDB, Express, React, Node.js)** e-commerce admin & product management application.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✨ User Authentication (Register & Login)
+🛡️ Protected Routes with JW
+📦 Product Management (Add & View)
+🗂️ Category Management (Admin Only)
+🔗 MongoDB Population (Category & User)
+🎨 Clean Responsive UI
+⚡ Axios API Integration
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧱 Tech Stack
 
-## Expanding the ESLint configuration
+**Frontend**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* ⚛️ React (Vite)
+* 🔄 React Router DOM
+* 📡 Axios
+* 🎨 Inline CSS
+
+**Backend**
+
+* 🟢 Node.js
+* 🚂 Express.js
+* 🍃 MongoDB + Mongoose
+* 🔐 JWT Authentication
+* 🍪 Cookie Parser
+* 🌐 CORS
+
+---
+
+## 📁 Project Structure
+
+```
+e-com/
+│
+├── backend/
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   └── server.js
+│
+└── frontend/
+    ├── src/
+    │   ├── api/
+    │   ├── pages/
+    │   ├── components/
+    │   └── App.jsx
+```
+
+---
+
+
+### Auth
+
+| Method | Route                | Description   |
+| ------ | -------------------- | ------------- |
+| POST   | `/api/auth/register` | Register user |
+| POST   | `/api/auth/login`    | Login user    |
+
+---
+
+### Categories
+
+| Method | Route                 | Access |
+| ------ | --------------------- | ------ |
+| GET    | `/api/categories`     | Public |
+| POST   | `/api/categories`     | Admin  |
+| PUT    | `/api/categories/:id` | Admin  |
+| DELETE | `/api/categories/:id` | Admin  |
+
+---
+
+### Products
+
+| Method | Route               | Description      |
+| ------ | ------------------- | ---------------- |
+| GET    | `/api/products`     | Get all products |
+| POST   | `/api/products`     | Create product   |
+| PUT    | `/api/products/:id` | Update           |
+| DELETE | `/api/products/:id` | Delete           |
+
+---
+
+## 🧠 Important Notes
+
+⚠️ Admin required to create categories
+⚠️ Category must exist before adding product
+⚠️ MongoDB must be connected
+⚠️ JWT cookie required for protected routes
+
+---
+
+## 🐞 Common Errors & Fix
+
+**❌ Cast to ObjectId failed**
+
+👉 Make sure category `_id` is sent from frontend.
+
+**❌ 500 Internal Server Error**
+
+👉 Check:
+
+* MongoDB connection
+* Required fields
+* Console logs
+
+**❌ CORS Error**
+
+👉 Ensure backend CORS origin:
+
+```js
+origin: "http://localhost:5173"
+```
+
+---
+
+## 🌟 Future Improvements
+
+* 🖼 Product image upload
+* 🔍 Search & filter
+* 🛒 Cart system
+* 💳 Payment integration
+* 🎨 Tailwind UI
+* 📱 Fully responsive design
+
+

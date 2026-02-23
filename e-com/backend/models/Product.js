@@ -4,15 +4,15 @@ const productSchema = new mongoose.Schema(
   {
     name: String,
     price: Number,
-    description: String,
     category: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Category"
+      ref: "Category",
+      required: true
     },
-    createdBy: {
+    user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
-    }
+      ref: "User",
+    },
   },
   { timestamps: true }
 );
