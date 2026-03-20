@@ -72,10 +72,3 @@ Admin-Panel/
     ├── src/api/
     └── vite.config.js
 ```
-
-## Troubleshooting
-- **OTP not received**: Check spam + app password
-- **500 Error**: Check backend console for exact error
-- **Mongo**: Install MongoDB or use MongoDB Atlas
-
-**Production Ready - Deploy to Render/Vercel + Mongo Atlas!** 🚀
