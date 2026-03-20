@@ -46,7 +46,7 @@ const VerifyOtp = () => {
       await verifyOTP(email, otp);
       navigate("/dashboard");
     } catch (error) {
-      console.error("OTP verification error:", error);
+      toast.error(error?.response?.data?.message || "Invalid or expired OTP");
     } finally {
       setIsLoading(false);
     }

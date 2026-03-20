@@ -1,65 +1,29 @@
-# Admin Panel Improvement TODO List
+# Admin Panel Bug Fix Tracker
 
-## Phase 1: Backend Improvements (COMPLETED)
+**Current Status**: Fixing Authentication & OTP System first (User Approved)
 
-### 1.1 Install Required Dependencies ✅
-- [x] Install express-validator for form validation
-- [x] Install bcryptjs (already there, remove duplicate bcrypt)
+## ✅ COMPLETED STEPS
+- [x] Analyzed all relevant files (auth, OTP, models, frontend API)
+- [x] Created detailed fix plan (validation, remove broken OTP service, standardize email)
 
-### 1.2 Refactor Backend Structure ✅
-- [x] Create proper folder structure (controllers, routes, models, middlewares, utils)
-- [x] Create AppError class for error handling
-- [x] Create asyncErrorHandler utility
-- [x] Refactor auth controller (remove duplicate code)
-- [x] Add proper validation to auth routes
-- [x] Replace Teacher model with Product model
-- [x] Create Product controller with full CRUD
-- [x] Create Product routes
-- [x] Add User management for Admin
-- [x] Add update and get single product functionality
-- [x] Improve JWT middleware with better error handling
-- [x] Add comments to backend code
+## 🔄 IN PROGRESS - Phase 1: Core Auth Fixes
+1. [✅] **Add validation middleware to auth routes** (`backend/routes/auth.routes.js`)
+2. [✅] **Remove broken OTP service** (`backend/services/otp-services.js` - missing model)
+3. [✅] **Standardize OTP email template** (`backend/controllers/auth.controller.js`)
+4. [✅] **Add missing teacher routes to app.js** (`backend/app.js`)
 
-## Phase 2: Frontend Improvements
+## ⏳ Phase 2: API & CRUD Fixes
+5. [ ] Add validation to product/user/teacher routes
+6. [ ] Fix controllers error handling & responses
+7. [ ] Validate Product/Teacher models
 
-### 2.1 Install Required Dependencies
-- [ ] Install react-hot-toast for notifications
-- [ ] Install lucide-react for icons
-- [ ] Install react-hook-form for form handling
+## ⏳ Phase 3: Frontend Fixes
+8. [✅] Add toast error handling to Login/Register/VerifyOTP pages
+9. [ ] Fix dashboard data fetching
 
-### 2.2 Create Frontend Structure
-- [ ] Create layouts folder with DashboardLayout
-- [ ] Create components folder structure
-- [ ] Create sidebar component
-- [ ] Create header component
-- [ ] Create stats card component
-- [ ] Create data table component
-- [ ] Create pagination component
-- [ ] Create loading spinner component
+## ⏳ Phase 4: Testing
+10. [ ] Backend test: npm run dev + register/login/OTP flow
+11. [ ] Frontend test: npm run dev + full user flow
+12. [ ] Database CRUD operations
 
-### 2.3 Create Pages
-- [ ] Improve Login page with validation and styling
-- [ ] Improve Signup page with validation and styling
-- [ ] Improve VerifyOTP page
-- [ ] Create Dashboard page with stats
-- [ ] Create Products page with CRUD UI
-- [ ] Create Users page (Admin only)
-- [ ] Create Profile page
-
-### 2.4 Add Features
-- [ ] Add protected routes with role-based access
-- [ ] Add search functionality
-- [ ] Add filter functionality
-- [ ] Add pagination
-- [ ] Add form validation
-- [ ] Add loading states
-- [ ] Add error handling
-- [ ] Make responsive design
-
-## Phase 3: Testing & Optimization
-
-- [ ] Test all API endpoints
-- [ ] Test all frontend pages
-- [ ] Optimize API calls
-- [ ] Remove unnecessary code
-
+**Next Action**: Implementing Step 1 - auth routes validation

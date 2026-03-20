@@ -26,7 +26,7 @@ const Login = () => {
       await login(data.email, data.password);
       navigate(from, { replace: true });
     } catch (error) {
-      console.error("Login error:", error);
+      toast.error(error?.response?.data?.message || "Login failed. Please try again.");
     } finally {
       setIsLoading(false);
     }

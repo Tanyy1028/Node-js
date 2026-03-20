@@ -1,9 +1,5 @@
 import mongoose from "mongoose";
 
-/**
- * Product Schema
- * Represents products in the inventory/system
- */
 const productSchema = new mongoose.Schema(
   {
     name: {

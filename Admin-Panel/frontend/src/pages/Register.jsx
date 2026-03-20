@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Eye, EyeOff, UserPlus } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import LoadingSpinner from "../components/LoadingSpinner";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -24,6 +25,7 @@ const Register = () => {
       navigate("/verify-otp", { state: { email: data.email } });
     } catch (error) {
       console.error("Registration error:", error);
+      toast.error(error?.response?.data?.message || "Registration failed. Please try again.");
     } finally {
       setIsLoading(false);
     }
